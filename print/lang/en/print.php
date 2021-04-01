@@ -20,33 +20,26 @@ $string['legacyfiles'] = 'Migration of old course file';
 $string['legacyfilesactive'] = 'Active';
 $string['legacyfilesdone'] = 'Finished';
 $string['modulename'] = 'Print';
-$string['modulename_help'] = 'The print module enables a teacher to print anything in a course.
+$string['modulename_help'] = 'The print module enables a user to print the contents of a course.
 
-Advantages of using the page module rather than the file module include the resource being more accessible (for example to users of mobile devices) and easier to update.
-
-For large amounts of content, it\'s recommended that a book is used rather than a page.
-
-A page may be used
-
-* To present the terms and conditions of a course or a summary of the course syllabus
-* To embed several videos or sound files together with some explanatory text';
-$string['modulename_link'] = 'mod/page/view';
-$string['modulenameplural'] = 'Pages';
+By default, this module is visible to students but it is highly recommended that VISIBILTY BE RESTRICTED TO STUDENTS.';
+$string['modulename_link'] = 'mod/print/view';
+$string['modulenameplural'] = 'Prints';
 $string['optionsheader'] = 'Display options';
 $string['page-mod-page-x'] = 'Any page module page';
 $string['page:addinstance'] = 'Add a new print resource';
 $string['page:view'] = 'View print content';
-$string['pluginadministration'] = 'Page module administration';
+$string['pluginadministration'] = 'Print module administration';
 $string['pluginname'] = 'Print';
 $string['popupheight'] = 'Pop-up height (in pixels)';
 $string['popupheightexplain'] = 'Specifies default height of popup windows.';
 $string['popupwidth'] = 'Pop-up width (in pixels)';
 $string['popupwidthexplain'] = 'Specifies default width of popup windows.';
-$string['printheading'] = 'Display page name';
-$string['printheadingexplain'] = 'Display page name above content?';
-$string['printintro'] = 'Display page description';
-$string['printintroexplain'] = 'Display page description above content?';
+$string['printheading'] = 'Display print name';
+$string['printheadingexplain'] = 'Display print name above content?';
+$string['printintro'] = 'Display print description';
+$string['printintroexplain'] = 'Display print description above content?';
 $string['printlastmodified'] = 'Display last modified date';
 $string['printlastmodifiedexplain'] = 'Display last modified date below content?';
-$string['privacy:metadata'] = 'The Page resource plugin does not store any personal data.';
+$string['privacy:metadata'] = 'The Print resource plugin does not store any personal data.';
 $string['search:activity'] = 'Print';
