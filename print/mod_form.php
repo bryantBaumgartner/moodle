@@ -25,12 +25,15 @@ class mod_print_mod_form extends moodleform_mod {
         }
         $mform->addRule('name', null, 'required', null, 'client');
         $mform->addRule('name', get_string('maximumchars', '', 255), 'maxlength', 255, 'client');
+	$this->standard_intro_elements();
 
 	//Description
+	$mform->addElement('header', 'contentsection', get_string('contentheader', 'page'));
         $mform->addElement('editor', 'print', get_string('content', 'print'), null, print_get_editor_options($this->context));
         $mform->addRule('print', get_string('required'), 'required', null, 'client');
 
 	//Display Options
+	$mform->addElement('header', 'appearancehdr', get_string('appearance'));
 	if ($this->current->instance) {
             $options = resourcelib_get_displayoptions(explode(',', $config->displayoptions), $this->current->display);
         } else {
@@ -44,6 +47,37 @@ class mod_print_mod_form extends moodleform_mod {
         } else {
             $mform->addElement('select', 'display', get_string('displayselect', 'print'), $options);
             $mform->setDefault('display', $config->display);
+        }
+
+	if (array_key_exists(RESOURCELIB_DISPLAY_POPUP, $options)) {
+            $mform->addElement('text', 'popupwidth', get_string('popupwidth', 'page'), array('size'=>3));
+            if (count($options) > 1) {
+                $mform->hideIf('popupwidth', 'display', 'noteq', RESOURCELIB_DISPLAY_POPUP);
+            }
+            $mform->setType('popupwidth', PARAM_INT);
+            $mform->setDefault('popupwidth', $config->popupwidth);
+
+            $mform->addElement('text', 'popupheight', get_string('popupheight', 'page'), array('size'=>3));
+            if (count($options) > 1) {
+                $mform->hideIf('popupheight', 'display', 'noteq', RESOURCELIB_DISPLAY_POPUP);
+            }
+            $mform->setType('popupheight', PARAM_INT);
+            $mform->setDefault('popupheight', $config->popupheight);
+        }
+
+        $mform->addElement('advcheckbox', 'printheading', get_string('printheading', 'page'));
+        $mform->setDefault('printheading', $config->printheading);
+        $mform->addElement('advcheckbox', 'printintro', get_string('printintro', 'page'));
+        $mform->setDefault('printintro', $config->printintro);
+        $mform->addElement('advcheckbox', 'printlastmodified', get_string('printlastmodified', 'page'));
+        $mform->setDefault('printlastmodified', $config->printlastmodified);
+
+        // add legacy files flag only if used
+        if (isset($this->current->legacyfiles) and $this->current->legacyfiles != RESOURCELIB_LEGACYFILES_NO) {
+            $options = array(RESOURCELIB_LEGACYFILES_DONE   => get_string('legacyfilesdone', 'page'),
+                             RESOURCELIB_LEGACYFILES_ACTIVE => get_string('legacyfilesactive', 'page'));
+            $mform->addElement('select', 'legacyfiles', get_string('legacyfiles', 'page'), $options);
+            $mform->setAdvanced('legacyfiles', 1);
         }
 
         //-------------------------------------------------------
