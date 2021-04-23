@@ -22,11 +22,7 @@ $string['legacyfilesdone'] = 'Finished';
 $string['modulename'] = 'Print';
 $string['modulename_help'] = 'The print module enables a teacher to print anything in a course.
 
-Advantages of using the page module rather than the file module include the resource being more accessible (for example to users of mobile devices) and easier to update.
-
-For large amounts of content, it\'s recommended that a book is used rather than a page.
-
-A page may be used
+Put something else here/ This is a part of the above stuff
 
 * To present the terms and conditions of a course or a summary of the course syllabus
 * To embed several videos or sound files together with some explanatory text';
